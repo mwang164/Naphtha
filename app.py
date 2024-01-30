@@ -4,84 +4,86 @@ import pandas as pd
 
 app = Dash(__name__)
 server = app.server
+xls_file = pd.ExcelFile("month spreads.xlsx")
 
-# Read MOPJ
-MOPJdf = pd.read_excel("month spreads.xlsx", sheet_name="MOPJ", header=1)
+# Extract data from the "MOPJ" sheet
+MOPJdf = xls_file.parse("MOPJ", header=1)
 MOPJdf = MOPJdf.dropna()
 MOPJdf['Date'] = pd.to_datetime(MOPJdf['Date'])
 MOPJdf.set_index('Date', inplace=True)
-# Read NWE
-NWEdf = pd.read_excel("month spreads.xlsx", sheet_name="NWE", header=1)
+
+# Extract data from the "NWE" sheet
+NWEdf = xls_file.parse("NWE", header=1)
 NWEdf = NWEdf.dropna()
 NWEdf['Date'] = pd.to_datetime(NWEdf['Date'])
 NWEdf.set_index('Date', inplace=True)
 # Read FEI
-FEIdf = pd.read_excel("month spreads.xlsx", sheet_name="FEI", header=1)
+FEIdf = xls_file.parse("FEI", header=1)
 FEIdf = FEIdf.dropna()
 FEIdf['Date'] = pd.to_datetime(FEIdf['Date'])
 FEIdf.set_index('Date', inplace=True)
 # Read R92
-R92df = pd.read_excel("month spreads.xlsx", sheet_name="R92", header=1)
+R92df = xls_file.parse("R92", header=1)
 R92df = R92df.dropna()
 R92df['Date'] = pd.to_datetime(R92df['Date'])
 R92df.set_index('Date', inplace=True)
 # Read EBOB
-EBOBdf = pd.read_excel("month spreads.xlsx", sheet_name="EBOB", header=1)
+EBOBdf = xls_file.parse("EBOB", header=1)
 EBOBdf = EBOBdf.dropna()
 EBOBdf['Date'] = pd.to_datetime(EBOBdf['Date'])
 EBOBdf.set_index('Date', inplace=True)
 # Read NWEC3
-NWEC3df = pd.read_excel("month spreads.xlsx", sheet_name="NWEC3", header=1)
+NWEC3df = xls_file.parse("NWEC3", header=1)
 NWEC3df = NWEC3df.dropna()
 NWEC3df['Date'] = pd.to_datetime(NWEC3df['Date'])
 NWEC3df.set_index('Date', inplace=True)
 # Read MOPJCRK
-MOPJCRKdf = pd.read_excel("month spreads.xlsx", sheet_name="MOPJCRK", header=1)
+MOPJCRKdf = xls_file.parse("MOPJCRK", header=1)
 MOPJCRKdf = MOPJCRKdf.dropna()
 MOPJCRKdf['Date'] = pd.to_datetime(MOPJCRKdf['Date'])
 MOPJCRKdf.set_index('Date', inplace=True)
 # Read NWECRK
-NWECRKdf = pd.read_excel("month spreads.xlsx", sheet_name="NWECRK", header=1)
+NWECRKdf = xls_file.parse("NWECRK", header=1)
 NWECRKdf = NWECRKdf.dropna()
 NWECRKdf['Date'] = pd.to_datetime(NWECRKdf['Date'])
 NWECRKdf.set_index('Date', inplace=True)
 # Read R92CRK
-R92CRKdf = pd.read_excel("month spreads.xlsx", sheet_name="R92CRK", header=1)
+R92CRKdf = xls_file.parse("R92CRK", header=1)
 R92CRKdf = R92CRKdf.dropna()
 R92CRKdf['Date'] = pd.to_datetime(R92CRKdf['Date'])
 R92CRKdf.set_index('Date', inplace=True)
 # Read EBOBCRK
-EBOBCRKdf = pd.read_excel("month spreads.xlsx", sheet_name="EBOBCRK", header=1)
+EBOBCRKdf = xls_file.parse("EBOBCRK", header=1)
 EBOBCRKdf = EBOBCRKdf.dropna()
 EBOBCRKdf['Date'] = pd.to_datetime(EBOBCRKdf['Date'])
 EBOBCRKdf.set_index('Date', inplace=True)
 # Read EW
-EWdf = pd.read_excel("month spreads.xlsx", sheet_name="EW", header=1)
+EWdf = xls_file.parse("EW", header=1)
 EWdf = EWdf.dropna()
 EWdf['Date'] = pd.to_datetime(EWdf['Date'])
 EWdf.set_index('Date', inplace=True)
 # Read R92MOPJ
-R92MOPJdf = pd.read_excel("month spreads.xlsx", sheet_name="R92MOPJ", header=1)
+R92MOPJdf = xls_file.parse("R92MOPJ", header=1)
 R92MOPJdf = R92MOPJdf.dropna()
 R92MOPJdf['Date'] = pd.to_datetime(R92MOPJdf['Date'])
 R92MOPJdf.set_index('Date', inplace=True)
 # Read EBOBNWE
-EBOBNWEdf = pd.read_excel("month spreads.xlsx", sheet_name="EBOBNWE", header=1)
+EBOBNWEdf = xls_file.parse("EBOBNWE", header=1)
 EBOBNWEdf = EBOBNWEdf.dropna()
 EBOBNWEdf['Date'] = pd.to_datetime(EBOBNWEdf['Date'])
 EBOBNWEdf.set_index('Date', inplace=True)
 # Read FEIMOPJ
-FEIMOPJdf = pd.read_excel("month spreads.xlsx", sheet_name="FEIMOPJ", header=1)
+FEIMOPJdf = xls_file.parse("FEIMOPJ", header=1)
 FEIMOPJdf = FEIMOPJdf.dropna()
 FEIMOPJdf['Date'] = pd.to_datetime(FEIMOPJdf['Date'])
 FEIMOPJdf.set_index('Date', inplace=True)
 # Read NWEC3NAP
-NWEC3NAPdf = pd.read_excel("month spreads.xlsx", sheet_name="NWEC3NAP", header=1)
+NWEC3NAPdf = xls_file.parse("NWEC3NAP", header=1)
 NWEC3NAPdf = NWEC3NAPdf.dropna()
 NWEC3NAPdf['Date'] = pd.to_datetime(NWEC3NAPdf['Date'])
 NWEC3NAPdf.set_index('Date', inplace=True)
 # Read BRT
-BRTdf = pd.read_excel("month spreads.xlsx", sheet_name="BRT", header=1)
+BRTdf = xls_file.parse("BRT", header=1)
 BRTdf = BRTdf.dropna()
 BRTdf['Date'] = pd.to_datetime(BRTdf['Date'])
 BRTdf.set_index('Date', inplace=True)
