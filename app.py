@@ -3,7 +3,7 @@ import plotly.express as px
 import pandas as pd
 
 app = Dash(__name__)
-
+server = app.server
 
 # Read MOPJ
 MOPJdf = pd.read_excel("month spreads.xlsx", sheet_name="MOPJ", header=1)
